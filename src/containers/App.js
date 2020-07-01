@@ -8,7 +8,7 @@ import Home from "../components/Home";
 class App extends Component {
   state = {
     route: "Home Page",
-    component:''
+    component:null
   };
 
   onRouteChange = (route) => {
