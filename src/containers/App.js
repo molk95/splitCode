@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import "./App.css";
 
 import Home from "../components/Home";
-import Services from "../components/Services";
-import About from "../components/About";
+// import Services from "../components/Services";
+// import About from "../components/About";
 
 class App extends Component {
   state = {
@@ -24,7 +24,13 @@ if (route === 'Home Page') {
     route:route
   })
 }else if (route==='Services Page') {
-  import('./com')
+  import('../components/Services').then((Services)=> {
+    this.setState({route:route, component:Services.default})
+  })
+} else if (route === 'About Page') {
+  import('../components/About').then((About)=> {
+    this.setState({route:route, component:About.default})
+  })
 }
   };
 
@@ -37,9 +43,9 @@ if (route === 'Home Page') {
     //   return <Services onRouteChange={this.onRouteChange} />;
     // }
     if (this.state.route==='Home Page') {
-      return <Home onRouteChange={this.onRouteChange}
+      return <Home onRouteChange={this.onRouteChange} />
     } else {
-      return <globalThis.state.component onRouteChange={this.onRouteChange} />
+      return <this.state.component onRouteChange={this.onRouteChange} />
     }
   }
 }
