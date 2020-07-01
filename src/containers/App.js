@@ -13,25 +13,25 @@ class App extends Component {
 
   onRouteChange = (route) => {
     // No Code Splitting
-    // this.setState({
-    //   route: route,
-    // });
+    this.setState({
+      route: route,
+    });
 
 
     // With Code Splitting
-if (route === 'Home Page') {
-  this.setState({
-    route:route
-  })
-}else if (route==='Services Page') {
-  import('../components/Services').then((Services)=> {
-    this.setState({route:route, component:Services.default})
-  })
-} else if (route === 'About Page') {
-  import('../components/About').then((About)=> {
-    this.setState({route:route, component:About.default})
-  })
-}
+// if (route === 'Home Page') {
+//   this.setState({
+//     route:route
+//   })
+// }else if (route==='Services Page') {
+//   import('../components/Services').then((Services)=> {
+//     this.setState({route:route, component:Services.default})
+//   })
+// } else if (route === 'About Page') {
+//   import('../components/About').then((About)=> {
+//     this.setState({route:route, component:About.default})
+//   })
+// }
   };
 
   render() {
