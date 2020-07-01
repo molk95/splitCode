@@ -36,7 +36,11 @@ if (route === 'Home Page') {
     // } else if (this.state.route === "Services Page") {
     //   return <Services onRouteChange={this.onRouteChange} />;
     // }
-    if t
+    if (this.state.route==='Home Page') {
+      return <Home onRouteChange={this.onRouteChange}
+    } else {
+      return <globalThis.state.component onRouteChange={this.onRouteChange} />
+    }
   }
 }
 
