@@ -4,6 +4,7 @@ import "./App.css";
 import Home from "../components/Home";
 // import Services from "../components/Services";
 // import About from "../components/About";
+import AsyncComponent from '../components/AcyncConponent'
 
 class App extends Component {
   state = {
@@ -35,18 +36,20 @@ class App extends Component {
   };
 
   render() {
-    // if (this.state.route === "Home Page") {
-    //   return <Home onRouteChange={this.onRouteChange} />;
-    // } else if (this.state.route === "About Page") {
-    //   return <About onRouteChange={this.onRouteChange} />;
-    // } else if (this.state.route === "Services Page") {
-    //   return <Services onRouteChange={this.onRouteChange} />;
-    // }
-    if (this.state.route==='Home Page') {
-      return <Home onRouteChange={this.onRouteChange} />
-    } else {
-      return <this.state.component onRouteChange={this.onRouteChange} />
+    if (this.state.route === "Home Page") {
+      return <Home onRouteChange={this.onRouteChange} />;
+    } else if (this.state.route === "About Page") {
+      const AsyncAbout = AsyncComponent(()=> import('../components/About'))
+      return <AsyncAbout onRouteChange={this.onRouteChange} />
+    } else if (this.state.route === "Services Page") {
+      const AsyncServices = AsyncComponent(()=> import('../components/Services'))
+      return <AsyncServices onRouteChange={this.onRouteChange} />
     }
+    // if (this.state.route==='Home Page') {
+    //   return <Home onRouteChange={this.onRouteChange} />
+    // } else {
+    //   return <this.state.component onRouteChange={this.onRouteChange} />
+    // }
   }
 }
 

@@ -17,5 +17,5 @@ export default function asyncComponent(importComponent) {
       return Component ? <Component {...this.props} /> : null;
     }
   }
-  return AsyncComponent;
+  return AcyncConponent;
 }
